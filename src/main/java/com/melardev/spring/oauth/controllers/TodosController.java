@@ -72,7 +72,7 @@ public class TodosController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ROLE_USER') and #oauth2.hasScope('write')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER') and #oauth2.hasScope('write')")
     public ResponseEntity<AppResponse> create(@Valid @RequestBody Todo todo) {
         return new ResponseEntity<>(new TodoDetailsResponse(todosRepository.save(todo), "Todo created successfully"), HttpStatus.CREATED);
     }

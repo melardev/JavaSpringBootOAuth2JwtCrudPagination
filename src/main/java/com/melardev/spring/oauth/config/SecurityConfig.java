@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder());
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -58,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // .authorizeRequests().antMatchers("/auth/login").authenticated().and()
                 .authorizeRequests()
                 .antMatchers("/api-docs/**").permitAll()
-        .and().exceptionHandling().authenticationEntryPoint(oauthEntryPoint).accessDeniedHandler(oauthAccessDenied);
+                .and().exceptionHandling().authenticationEntryPoint(oauthEntryPoint).accessDeniedHandler(oauthAccessDenied);
 
     }
 
