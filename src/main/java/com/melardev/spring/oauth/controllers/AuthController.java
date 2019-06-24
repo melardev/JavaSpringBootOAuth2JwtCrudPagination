@@ -78,6 +78,7 @@ public class AuthController {
                     parameters.put("username", loginRequest.getUsername());
                     parameters.put("password", loginRequest.getPassword());
                     parameters.put("grant_type", "password");
+
                     try {
                         Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
